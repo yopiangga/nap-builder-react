@@ -2,16 +2,18 @@ import { useState } from "react";
 import { FaFilePdf } from "react-icons/fa";
 import { FiUploadCloud } from "react-icons/fi";
 
-export function UploadComponent() {
+export function UploadComponent({ handleUpload }) {
   const [files, setFiles] = useState([]);
 
-  console.log(files);
+  const handleCheckUpload = (e) => {
+    e.preventDefault();
 
-  const handleUpload = (e) => {};
+    handleUpload(files);
+  };
 
   return (
     <div className="bg-white rounded-xl p-5 pb-10">
-      <form onSubmit={handleUpload}>
+      <form onSubmit={handleCheckUpload}>
         <input
           id="documents"
           className=""
