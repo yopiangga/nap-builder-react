@@ -62,7 +62,19 @@ export function NAPPage() {
 
           <br />
           <br />
-          <TextComponent />
+          {extractedData.descriptive.length > 0
+            ? extractedData.descriptive.map((e) => {
+                return (
+                  <div className="relative overflow-x-auto sm:rounded-lg mt-4">
+                    <TextComponent
+                      title={e.title}
+                      description={e.description}
+                      reference={e.reference}
+                    />
+                  </div>
+                );
+              })
+            : ""}
         </div>
       </div>
     </div>
